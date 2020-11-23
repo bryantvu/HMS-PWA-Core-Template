@@ -896,6 +896,7 @@ id async
 id basic
 id beginning
 id blocking
+id bot_banner
 id bottom
 id buttonPanel
 id center
@@ -975,7 +976,6 @@ id hiad_whythisad_vertical_ll_wrapper
 id hiad_whythisad_wrapper
 id home
 id homeAsUp
-id hw_banner_view
 id icon
 id icon_group
 id ifRoom
@@ -1055,6 +1055,7 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
+id top_banner
 id uniform
 id up
 id useLogo

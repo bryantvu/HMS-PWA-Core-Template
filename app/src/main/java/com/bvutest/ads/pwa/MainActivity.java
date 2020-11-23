@@ -2,7 +2,6 @@ package com.bvutest.ads.pwa;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.os.Handler;
@@ -26,7 +25,6 @@ import org.json.*;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private boolean hasPaused = false;
 
     private SplashView splashView;
+    
+    private boolean splashEnable = false;
+    private boolean bannerEnable = false;
+    private boolean enableTopBanner = false;
 
     private Handler timeoutHandler = new Handler(new Handler.Callback() {
         @Override
@@ -143,8 +145,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setWebView((WebView) this.findViewById(R.id.webView));
 
-        loadDefaultBannerAd();
-        loadAd();
+        //bannerEnable
+        //splashEnable
+        if(bannerEnable){
+            loadDefaultBannerAd();
+        }
+        if(splashEnable){
+            loadSplashAd();
+        }
+
     }
 
     private void setDisplay(Activity activity) {
@@ -254,7 +263,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadDefaultBannerAd() {
         // Obtain BannerView based on the configuration in layout/activity_main.xml.
-        defaultBannerView = findViewById(R.id.hw_banner_view);
+        //enableTopBanner
+        if(enableTopBanner){
+            defaultBannerView = findViewById(R.id.top_banner);
+        }else{
+            defaultBannerView = findViewById(R.id.bot_banner);
+        }
+
         defaultBannerView.setAdListener(adListener);
         defaultBannerView.setBannerRefresh(REFRESH_TIME);
 
@@ -266,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private void loadAd() {
+    private void loadSplashAd() {
         Log.i(TAG, "Start to load ad");
 
         AdParam adParam = new AdParam.Builder().build();
