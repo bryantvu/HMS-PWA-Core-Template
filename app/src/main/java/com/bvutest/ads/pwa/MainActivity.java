@@ -60,14 +60,14 @@ public class MainActivity extends AppCompatActivity {
         public void onAdLoaded() {
             // Call this method when an ad is successfully loaded.
             Log.i(TAG, "SplashAdLoadListener onAdLoaded.");
-            Toast.makeText(MainActivity.this, getString(R.string.status_load_ad_success), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, getString(R.string.status_load_ad_success), Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onAdFailedToLoad(int errorCode) {
             // Call this method when an ad fails to be loaded.
             Log.i(TAG, "SplashAdLoadListener onAdFailedToLoad, errorCode: " + errorCode);
-            Toast.makeText(MainActivity.this, getString(R.string.status_load_ad_fail) + errorCode, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, getString(R.string.status_load_ad_fail) + errorCode, Toast.LENGTH_SHORT).show();
             jump();
         }
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         public void onAdDismissed() {
             // Call this method when the ad display is complete.
             Log.i(TAG, "SplashAdLoadListener onAdDismissed.");
-            Toast.makeText(MainActivity.this, getString(R.string.status_ad_dismissed), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, getString(R.string.status_ad_dismissed), Toast.LENGTH_SHORT).show();
             jump();
         }
     };
@@ -98,37 +98,37 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onAdLoaded() {
             // Called when an ad is loaded successfully.
-            showToast("Ad loaded.");
+//            showToast("Ad loaded.");
         }
 
         @Override
         public void onAdFailed(int errorCode) {
             // Called when an ad fails to be loaded.
-            showToast(String.format(Locale.ROOT, "Ad failed to load with error code %d.", errorCode));
+//            showToast(String.format(Locale.ROOT, "Ad failed to load with error code %d.", errorCode));
         }
 
         @Override
         public void onAdOpened() {
             // Called when an ad is opened.
-            showToast(String.format("Ad opened "));
+//            showToast(String.format("Ad opened "));
         }
 
         @Override
         public void onAdClicked() {
             // Called when a user taps an ad.
-            showToast("Ad clicked");
+//            showToast("Ad clicked");
         }
 
         @Override
         public void onAdLeave() {
             // Called when a user has left the app.
-            showToast("Ad Leave");
+//            showToast("Ad Leave");
         }
 
         @Override
         public void onAdClosed() {
             // Called when an ad is closed.
-            showToast("Ad closed");
+//            showToast("Ad closed");
         }
     };
 
