@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //    private boolean splashEnable = false;
 //    private boolean bannerEnable = false;
 //    private boolean enableTopBanner = false;
-    private boolean splashEnable = true;
+    private boolean splashEnable = false;
     private boolean bannerEnable = false;
     private boolean enableTopBanner = false;
 
