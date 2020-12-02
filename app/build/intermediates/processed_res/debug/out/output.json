@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "com.bvutest.ads.pwa",
+  "applicationId": "com.bvutest.core.pwa",
   "variantType": "BASE_APK",
   "elements": [
     {
@@ -19,9 +19,9 @@
       },
       "path": "resources-debug.ap_",
       "properties": {
-        "packageId": "com.bvutest.ads.pwa",
+        "packageId": "com.bvutest.core.pwa",
         "split": "",
-        "minSdkVersion": "17"
+        "minSdkVersion": "19"
       }
     }
   ]

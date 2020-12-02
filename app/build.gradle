@@ -1,18 +1,31 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
 
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.2'
     defaultConfig {
-        applicationId "com.bvutest.ads.pwa"
-        minSdkVersion 17
+        applicationId "com.bvutest.core.pwa"
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        config {
+            storeFile file('./debug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+    }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -26,7 +39,9 @@ dependencies {
     })
     implementation 'com.huawei.hms:ads-lite:13.4.32.300'
     implementation 'com.huawei.hms:ads-consent:3.4.32.300'
+    implementation 'com.huawei.hms:push:5.0.0.300'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.huawei.hms:hianalytics:5.0.3.300'
     testImplementation 'junit:junit:4.12'
 }

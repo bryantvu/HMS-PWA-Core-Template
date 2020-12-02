@@ -1,8 +1,8 @@
 {
-    "name": "Uber Eats",
-    "short_name": "Uber Eats",
-    "description": "Uber Eats",
-    "start_url": "https://www.ubereats.com/",
+    "name": "Ebay",
+    "short_name": "Ebay",
+    "description": "Ebay",
+    "start_url": "https://www.ebay.com/",
     "scope": "/any/",
     "display": "fullscreen",
     "orientation": "portrait",

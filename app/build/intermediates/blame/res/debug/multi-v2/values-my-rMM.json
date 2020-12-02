@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Ads\\android\\source\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my-rMM\\values-my-rMM.xml",
+            "outputFile": "F:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my-rMM\\values-my-rMM.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\c44dab2b2111502e08ab698366e19dde\\ads-lang-13.4.32.300\\res\\values-my-rMM\\values-my-rMM.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\85f7282b2def770b52bb50467884284c\\push-5.0.0.300\\res\\values-my-rMM\\values-my-rMM.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    },
+                    "to": {
+                        "startLines": "69",
+                        "startColumns": "4",
+                        "startOffsets": "6555",
+                        "endColumns": "66",
+                        "endOffsets": "6617"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\ea1ab8f6b2068fc850107e559590929a\\ads-lang-13.4.32.300\\res\\values-my-rMM\\values-my-rMM.xml",
                     "from": {
                         "startLines": "2,5,8,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
