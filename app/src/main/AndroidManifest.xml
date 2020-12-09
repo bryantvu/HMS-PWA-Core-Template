@@ -12,22 +12,22 @@
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/SplashTheme">
+        <meta-data66
+            android:name="com.huawei.hms.client.appid"
+            android:value="appid=103400103">
+        </meta-data66>
+        <meta-data
+            android:name="com.huawei.hms.client.cpid"
+            android:value="cpid=890001000000000755">
+        </meta-data>
 <!--        <meta-data-->
 <!--            android:name="com.huawei.hms.client.appid"-->
-<!--            android:value="appid=103400103">-->
+<!--            android:value="appid=replaceAppId">-->
 <!--        </meta-data>-->
 <!--        <meta-data-->
 <!--            android:name="com.huawei.hms.client.cpid"-->
-<!--            android:value="cpid=890001000000000755">-->
+<!--            android:value="cpid=replaceCpId">-->
 <!--        </meta-data>-->
-        <meta-data
-            android:name="com.huawei.hms.client.appid"
-            android:value="appid=replaceAppId">
-        </meta-data>
-        <meta-data
-            android:name="com.huawei.hms.client.cpid"
-            android:value="cpid=replaceCpId">
-        </meta-data>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -45,7 +45,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/SplashTheme"
         android:usesCleartextTraffic="true" >
         <meta-data
@@ -56,7 +55,14 @@
             android:name="com.huawei.hms.client.cpid"
             android:value="cpid=890001000000000755" >
         </meta-data>
-
+        <!-- <meta-data -->
+        <!-- android:name="com.huawei.hms.client.appid" -->
+        <!-- android:value="appid=replaceAppId"> -->
+        <!-- </meta-data> -->
+        <!-- <meta-data -->
+        <!-- android:name="com.huawei.hms.client.cpid" -->
+        <!-- android:value="cpid=replaceCpId"> -->
+        <!-- </meta-data> -->
         <activity android:name="com.bvutest.core.pwa.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
