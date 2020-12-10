@@ -345,9 +345,10 @@ public class MainActivity extends AppCompatActivity {
         if (!hasPaused) {
             hasPaused = true;
             Log.i(TAG, "jump into application");
-
-            splashView.destroyView();
-            splashView.setVisibility(View.GONE);
+            if(splashView!=null){
+                splashView.destroyView();
+                splashView.setVisibility(View.GONE);
+            }
         }
     }
 
