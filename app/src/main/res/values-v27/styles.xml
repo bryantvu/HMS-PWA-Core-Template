@@ -3,7 +3,7 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorStatus</item>
-        <item name="colorPrimaryDark">@color/colorSplash</item>
+        <item name="colorPrimaryDark">@color/colorStatus</item>
         <item name="android:navigationBarColor">@color/colorNav</item>
         <item name="android:navigationBarDividerColor">@color/colorNavDivider</item>
     </style>
