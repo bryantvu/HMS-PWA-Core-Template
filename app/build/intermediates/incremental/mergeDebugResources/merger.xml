@@ -3583,7 +3583,7 @@
         <item name="android:windowFullscreen">true</item>
     </style><style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash</item>
-    </style></file><file path="E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\res\values-v27\styles.xml" qualifiers="v27"><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style></file><file path="E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\res\values-v27\styles.xml" qualifiers="v27"><style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorNav</item>
         <item name="colorPrimaryDark">@color/colorSplash</item>
         <item name="android:navigationBarColor">@color/colorNav</item>
