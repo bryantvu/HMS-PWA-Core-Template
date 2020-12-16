@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.huawei.hms:ads-splash:13.4.32.300@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0f379cb092f7565034a1134132e08860/ads-splash-13.4.32.300/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0f379cb092f7565034a1134132e08860/ads-splash-13.4.32.300/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0f379cb092f7565034a1134132e08860/ads-splash-13.4.32.300/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/25bd38db21cc1f8959209a9192e8cade/ads-splash-13.4.32.300/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/25bd38db21cc1f8959209a9192e8cade/ads-splash-13.4.32.300/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/25bd38db21cc1f8959209a9192e8cade/ads-splash-13.4.32.300/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huawei.hms/ads-splash/13.4.32.300/8a62094446090f8abb8b0243b3fc7ad46a5af49a/ads-splash-13.4.32.300-javadoc.jar!/" />
