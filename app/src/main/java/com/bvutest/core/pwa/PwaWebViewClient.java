@@ -17,6 +17,7 @@ class PwaWebViewClient extends WebViewClient {
     private ArrayList<String> filters = new ArrayList<>(Arrays.asList("filterReplace"));
 //    private ArrayList<String> filters = new ArrayList<>(Arrays.asList(".ebay.com", ".ebayinc.com"));
     private static final String TAG = "PwaWebViewClient";
+    private boolean enableFilter = false;
 
     public PwaWebViewClient(String start_url, String scope) {
         try {
@@ -58,16 +59,20 @@ class PwaWebViewClient extends WebViewClient {
 //            Log.d(TAG, "shouldOverrideUrlLoading >> return true");
 //            return true;
 //        }
-        if (checkUrl(url)) {
-            Log.d(TAG, "shouldOverrideUrlLoading >> return false");
+        //enableFilter
+        if(enableFilter){
+            if (checkUrl(url)) {
+                Log.d(TAG, "shouldOverrideUrlLoading >> return false");
+                return false;
+            } else {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                view.getContext().startActivity(i);
+                Log.d(TAG, "shouldOverrideUrlLoading >> return true");
+                return true;
+            }
+        }else{
             return false;
-        } else {
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            view.getContext().startActivity(i);
-            Log.d(TAG, "shouldOverrideUrlLoading >> return true");
-            return true;
         }
-//        return false;
     }
 
     private boolean checkUrl(String url){
