@@ -384,6 +384,7 @@ color button_material_light
 color colorNav
 color colorNavDivider
 color colorSplash
+color colorStatus
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
