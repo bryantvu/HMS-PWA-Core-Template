@@ -402,6 +402,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState )
+    {
+        super.onSaveInstanceState(outState);
+        myWebView.saveState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        myWebView.restoreState(savedInstanceState);
+    }
+
 //    private void testEvent() {
 //        // Report score by using SUBMITSCORE Event
 //        // Initiate Parameters
