@@ -940,6 +940,7 @@ id content_layout
 id content_textview
 id custom
 id customPanel
+id customViewContainer
 id decor_content_parent
 id default_activity_button
 id disableHome
@@ -1038,6 +1039,7 @@ id parent
 id parentPanel
 id progress_circular
 id progress_horizontal
+id progress_indicator
 id radio
 id relativeLayout
 id right
@@ -1185,6 +1187,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout upsdk_app_dl_progress_dialog
 layout upsdk_ota_update_view
+layout video_progress
 mipmap ic_launcher
 plurals hiad_dismiss_dilaog
 plurals hiad_no_prompt_in_days

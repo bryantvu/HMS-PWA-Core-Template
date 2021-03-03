@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -12,8 +14,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.*;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.huawei.agconnect.config.AGConnectServicesConfig;
@@ -46,19 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private WebView myWebView;
+    private View mCustomView;
+    private FrameLayout customViewContainer;
+    private WebChromeClient.CustomViewCallback customViewCallback;
+    private myWebViewClient mWebViewClient;
+    private myWebChromeClient mWebChromeClient;
 
     //HMS ADS
     private BannerView defaultBannerView;
     private static final int REFRESH_TIME = 30;
-
-    // Ad display timeout interval, in milliseconds.
     private static final int AD_TIMEOUT = 5000;
-
-    // Ad display timeout message flag.
     private static final int MSG_AD_TIMEOUT = 1001;
-
     private boolean hasPaused = false;
-
     private SplashView splashView;
     
 //    private boolean splashEnable = false;
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean splashEnable = false;
     private boolean bannerEnable = false;
     private boolean enableTopBanner = false;
+    private boolean chromeClientEnable = false;
 
     //HMS ANALYTICS
     HiAnalyticsInstance instance;
@@ -167,13 +172,15 @@ public class MainActivity extends AppCompatActivity {
         HiAnalyticsTools.enableLog();
         instance = HiAnalytics.getInstance(this);
 
+//        getSupportActionBar().hide();
         loadManifest();
         setDisplay(this);
         setOrientation(this);
         setName(this);
         setContentView(R.layout.activity_main);
+        customViewContainer = (FrameLayout) findViewById(R.id.customViewContainer);
         myWebView = (WebView) this.findViewById(R.id.webView);
-        setWebView(myWebView);
+        setWebView(myWebView, savedInstanceState);
         getToken();
 
         //bannerEnable
@@ -184,9 +191,7 @@ public class MainActivity extends AppCompatActivity {
         if(splashEnable){
             loadSplashAd();
         }
-
 //        testEvent();
-
     }
 
     private void setDisplay(Activity activity) {
@@ -243,13 +248,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private void setWebView(WebView myWebView) {
+    private void setWebView(WebView myWebView, Bundle savedInstanceState) {
         WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        myWebView.setKeepScreenOn(true);
+        webSettings.setAllowContentAccess(true);
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setSaveFormData(true);
+
         String start_url = this.manifestObject.optString("start_url");
         String scope = this.manifestObject.optString("scope");
-        myWebView.setWebViewClient(new PwaWebViewClient(start_url, scope));
-        myWebView.loadUrl(start_url);
+//        myWebView.setWebViewClient(new PwaWebViewClient(start_url, scope));
+        mWebViewClient = new myWebViewClient();
+        mWebChromeClient = new myWebChromeClient();
+
+        //chromeClientReplace
+        if(chromeClientEnable){
+            myWebView.setWebChromeClient(mWebChromeClient);
+        }else{
+            myWebView.setWebViewClient(mWebViewClient);
+        }
+//        myWebView.loadUrl(start_url);
+        if (savedInstanceState == null){
+            myWebView.loadUrl(start_url);
+        }
     }
 
     private static final String DEFAULT_MANIFEST_FILE = "manifest.json";
@@ -461,5 +486,120 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    class myWebChromeClient extends WebChromeClient {
+        private Bitmap mDefaultVideoPoster;
+        private View mVideoProgressView;
+        private static final String TAG = "WebChromeClient";
+
+        @Override
+        public void onShowCustomView(View view, int requestedOrientation, CustomViewCallback callback) {
+            hideSystemUI();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            onShowCustomView(view, callback);    //To change body of overridden methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void onShowCustomView(View view,CustomViewCallback callback) {
+            Log.d(TAG, "onShowCustomView");
+
+            hideSystemUI();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            // if a view already exists then immediately terminate the new one
+            if (mCustomView != null) {
+                callback.onCustomViewHidden();
+                return;
+            }
+            mCustomView = view;
+            myWebView.setVisibility(View.GONE);
+            customViewContainer.setVisibility(View.VISIBLE);
+            customViewContainer.addView(view);
+            customViewCallback = callback;
+
+
+        }
+
+        @Override
+        public View getVideoLoadingProgressView() {
+
+            if (mVideoProgressView == null) {
+                LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+                mVideoProgressView = inflater.inflate(R.layout.video_progress, null);
+            }
+            return mVideoProgressView;
+        }
+
+        @Override
+        public void onHideCustomView() {
+            Log.d(TAG, "onHideCustomView");
+            super.onHideCustomView();    //To change body of overridden methods use File | Settings | File Templates.
+            if (mCustomView == null)
+                return;
+
+            showSystemUI();
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            myWebView.setVisibility(View.VISIBLE);
+            customViewContainer.setVisibility(View.GONE);
+
+            // Hide the custom view.
+            mCustomView.setVisibility(View.GONE);
+
+            // Remove the custom view from its container.
+            customViewContainer.removeView(mCustomView);
+            customViewCallback.onCustomViewHidden();
+
+            mCustomView = null;
+        }
+        public Bitmap getDefaultVideoPoster()
+        {
+            if (mCustomView == null) {
+                return null;
+            }
+            return BitmapFactory.decodeResource(getApplicationContext().getResources(), 2130837573);
+        }
+
+        private void hideSystemUI() {
+            // Enables regular immersive mode.
+            // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+            // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_IMMERSIVE
+                            // Set the content to appear under the system bars so that the
+                            // content doesn't resize when the system bars hide and show.
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            // Hide the nav bar and status bar
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        }
+
+        // Shows the system bars by removing all the flags
+// except for the ones that make the content appear under the system bars.
+        private void showSystemUI() {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
+
+        @Override
+        public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+            Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                    + consoleMessage.lineNumber() + " of "
+                    + consoleMessage.sourceId());
+            return super.onConsoleMessage(consoleMessage);
+        }
+    }
+
+    class myWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//            return super.shouldOverrideUrlLoading(view, url);    //To change body of overridden methods use File | Settings | File Templates.
+            return false;
+        }
     }
 }

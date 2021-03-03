@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\debug\\layout_video_progress.xml.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\layout\\video_progress.xml"
+    },
+    {
         "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },

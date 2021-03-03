@@ -12,6 +12,15 @@
         hwads:layout_constraintStart_toStartOf="parent"
         hwads:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:id="@+id/customViewContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        hwads:layout_constraintStart_toStartOf="parent"
+        hwads:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        />
+
     <com.huawei.hms.ads.banner.BannerView
         android:id="@+id/top_banner"
         android:layout_width="match_parent"
