@@ -194,6 +194,14 @@ public class MainActivity extends AppCompatActivity {
 //        testEvent();
     }
 
+    public boolean inCustomView() {
+        return (mCustomView != null);
+    }
+
+    public void hideCustomView() {
+        mWebChromeClient.onHideCustomView();
+    }
+
     private void setDisplay(Activity activity) {
         if (this.manifestObject.optString("display").equals("fullscreen")) {
             activity.setTheme(R.style.FullscreenTheme);
@@ -263,14 +271,15 @@ public class MainActivity extends AppCompatActivity {
         String scope = this.manifestObject.optString("scope");
 //        myWebView.setWebViewClient(new PwaWebViewClient(start_url, scope));
         mWebViewClient = new myWebViewClient();
-        mWebChromeClient = new myWebChromeClient();
+        myWebView.setWebViewClient(mWebViewClient);
 
         //chromeClientReplace
+        chromeClientEnable = true;
         if(chromeClientEnable){
+            mWebChromeClient = new myWebChromeClient();
             myWebView.setWebChromeClient(mWebChromeClient);
-        }else{
-            myWebView.setWebViewClient(mWebViewClient);
         }
+
 //        myWebView.loadUrl(start_url);
         if (savedInstanceState == null){
             myWebView.loadUrl(start_url);
@@ -387,6 +396,9 @@ public class MainActivity extends AppCompatActivity {
         timeoutHandler.removeMessages(MSG_AD_TIMEOUT);
         hasPaused = true;
         super.onStop();
+        if (inCustomView()) {
+            hideCustomView();
+        }
     }
 
     /**
@@ -413,6 +425,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         Log.i(TAG, "SplashActivity onPause.");
         super.onPause();
+        myWebView.onPause();
         if (splashView != null) {
             splashView.pauseView();
         }
@@ -422,6 +435,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         Log.i(TAG, "SplashActivity onResume.");
         super.onResume();
+        myWebView.onResume();
         if (splashView != null) {
             splashView.resumeView();
         }

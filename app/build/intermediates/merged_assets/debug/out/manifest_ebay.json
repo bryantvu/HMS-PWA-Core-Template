@@ -1,0 +1,10 @@
+{
+    "name": "Ebay",
+    "short_name": "Ebay",
+    "description": "Ebay",
+    "start_url": "https://www.ebay.com/",
+    "scope": "/any/",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "lang": "English"
+}
