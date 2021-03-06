@@ -274,7 +274,6 @@ public class MainActivity extends AppCompatActivity {
         myWebView.setWebViewClient(mWebViewClient);
 
         //chromeClientReplace
-        chromeClientEnable = true;
         if(chromeClientEnable){
             mWebChromeClient = new myWebChromeClient();
             myWebView.setWebChromeClient(mWebChromeClient);
