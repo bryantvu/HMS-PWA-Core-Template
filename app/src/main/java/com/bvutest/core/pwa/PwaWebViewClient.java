@@ -117,5 +117,16 @@ class PwaWebViewClient extends WebViewClient {
         }
         return Pattern.compile(regex.toString());
     }
+
+    public void syncCookies(){
+        CookieManager.getInstance().setAcceptCookie(true);
+        CookieManager.getInstance().acceptCookie();
+        CookieManager.getInstance().flush();
+    }
+
+    public void onPageFinished(WebView view, String url) {
+        syncCookies();
+
+    }
 }
 

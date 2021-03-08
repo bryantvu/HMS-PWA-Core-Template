@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private View mCustomView;
     private FrameLayout customViewContainer;
     private WebChromeClient.CustomViewCallback customViewCallback;
-    private myWebViewClient mWebViewClient;
+    private PwaWebViewClient mWebViewClient;
     private myWebChromeClient mWebChromeClient;
 
     //HMS ADS
@@ -269,9 +269,10 @@ public class MainActivity extends AppCompatActivity {
 
         String start_url = this.manifestObject.optString("start_url");
         String scope = this.manifestObject.optString("scope");
-//        myWebView.setWebViewClient(new PwaWebViewClient(start_url, scope));
-        mWebViewClient = new myWebViewClient();
+        mWebViewClient = new PwaWebViewClient(start_url, scope);
         myWebView.setWebViewClient(mWebViewClient);
+//        mWebViewClient = new myWebViewClient();
+//        myWebView.setWebViewClient(mWebViewClient);
 
         //chromeClientReplace
         if(chromeClientEnable){
@@ -391,6 +392,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         Log.i(TAG, "SplashActivity onStop.");
+        syncWebViewCookies();
         // Remove the timeout message from the message queue.
         timeoutHandler.removeMessages(MSG_AD_TIMEOUT);
         hasPaused = true;
@@ -406,6 +408,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         Log.i(TAG, "SplashActivity onRestart.");
+        syncWebViewCookies();
         super.onRestart();
         hasPaused = false;
         jump();
@@ -414,6 +417,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         Log.i(TAG, "SplashActivity onDestroy.");
+        syncWebViewCookies();
         super.onDestroy();
         if (splashView != null) {
             splashView.destroyView();
@@ -423,6 +427,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         Log.i(TAG, "SplashActivity onPause.");
+        syncWebViewCookies();
         super.onPause();
         myWebView.onPause();
         if (splashView != null) {
@@ -433,6 +438,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         Log.i(TAG, "SplashActivity onResume.");
+        syncWebViewCookies();
         super.onResume();
         myWebView.onResume();
         if (splashView != null) {
@@ -608,11 +614,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class myWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//            return super.shouldOverrideUrlLoading(view, url);    //To change body of overridden methods use File | Settings | File Templates.
-            return false;
+    private void syncWebViewCookies(){
+        if(mWebViewClient!=null){
+            try{
+                mWebViewClient.syncCookies();
+            }catch(Exception e){
+                Log.d("syncWebViewCookies", "error >> " + e);
+            }
         }
     }
+
+//    class myWebViewClient extends WebViewClient {
+//        @Override
+//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+////            return super.shouldOverrideUrlLoading(view, url);    //To change body of overridden methods use File | Settings | File Templates.
+//            return false;
+//        }
+//    }
 }

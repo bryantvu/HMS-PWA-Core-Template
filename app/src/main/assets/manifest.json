@@ -1,8 +1,8 @@
 {
-    "name": "Ebay",
-    "short_name": "Ebay",
-    "description": "Ebay",
-    "start_url": "https://www.ebay.com/",
+    "name": "Pinterest",
+    "short_name": "Pinterest",
+    "description": "Pinterest",
+    "start_url": "https://www.pinterest.com/",
     "scope": "/any/",
     "display": "fullscreen",
     "orientation": "portrait",
