@@ -1,0 +1,10 @@
+{
+    "name": "Pinterest",
+    "short_name": "Pinterest",
+    "description": "Pinterest",
+    "start_url": "https://www.pinterest.com/",
+    "scope": "/any/",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "lang": "English"
+}

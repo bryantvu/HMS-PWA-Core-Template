@@ -60,6 +60,13 @@ class PwaWebViewClient extends WebViewClient {
 //            return true;
 //        }
         //enableFilter
+
+        //blocks redirects to play store
+        if(!url.contains("https://")&&!url.contains("http://")){
+            Log.d(TAG, url);
+            return true;
+        }
+
         if(enableFilter){
             if (checkUrl(url)) {
                 Log.d(TAG, "shouldOverrideUrlLoading >> return false");
@@ -119,12 +126,14 @@ class PwaWebViewClient extends WebViewClient {
     }
 
     public void syncCookies(){
+        Log.d(TAG, "syncCookies");
         CookieManager.getInstance().setAcceptCookie(true);
         CookieManager.getInstance().acceptCookie();
         CookieManager.getInstance().flush();
     }
 
     public void onPageFinished(WebView view, String url) {
+        Log.d(TAG, "onPageFinished");
         syncCookies();
 
     }

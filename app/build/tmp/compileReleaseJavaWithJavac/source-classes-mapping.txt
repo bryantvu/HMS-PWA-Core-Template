@@ -1,0 +1,14 @@
+com/bvutest/core/pwa/PwaWebViewClient.java
+ com.bvutest.core.pwa.PwaWebViewClient
+com/bvutest/core/pwa/MainActivity.java
+ com.bvutest.core.pwa.MainActivity
+ com.bvutest.core.pwa.MainActivity$1
+ com.bvutest.core.pwa.MainActivity$2
+ com.bvutest.core.pwa.MainActivity$3
+ com.bvutest.core.pwa.MainActivity$4
+ com.bvutest.core.pwa.MainActivity$5
+ com.bvutest.core.pwa.MainActivity$myWebChromeClient
+com/bvutest/core/pwa/MyPushService.java
+ com.bvutest.core.pwa.MyPushService
+com/bvutest/core/pwa/BuildConfig.java
+ com.bvutest.core.pwa.BuildConfig

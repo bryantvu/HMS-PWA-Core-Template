@@ -2,6 +2,8 @@ package com.bvutest.core.pwa;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -275,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
 //        myWebView.setWebViewClient(mWebViewClient);
 
         //chromeClientReplace
+//        chromeClientEnable = true;
         if(chromeClientEnable){
             mWebChromeClient = new myWebChromeClient();
             myWebView.setWebChromeClient(mWebChromeClient);
@@ -283,6 +286,9 @@ public class MainActivity extends AppCompatActivity {
 //        myWebView.loadUrl(start_url);
         if (savedInstanceState == null){
             myWebView.loadUrl(start_url);
+        }else{
+//            myWebView.restoreState(savedInstanceState);
+            loadURL();
         }
     }
 
@@ -393,6 +399,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         Log.i(TAG, "SplashActivity onStop.");
         syncWebViewCookies();
+        saveURL();
         // Remove the timeout message from the message queue.
         timeoutHandler.removeMessages(MSG_AD_TIMEOUT);
         hasPaused = true;
@@ -409,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         Log.i(TAG, "SplashActivity onRestart.");
         syncWebViewCookies();
+        saveURL();
         super.onRestart();
         hasPaused = false;
         jump();
@@ -418,6 +426,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         Log.i(TAG, "SplashActivity onDestroy.");
         syncWebViewCookies();
+        saveURL();
         super.onDestroy();
         if (splashView != null) {
             splashView.destroyView();
@@ -428,6 +437,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         Log.i(TAG, "SplashActivity onPause.");
         syncWebViewCookies();
+        saveURL();
         super.onPause();
         myWebView.onPause();
         if (splashView != null) {
@@ -449,15 +459,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState )
     {
-        super.onSaveInstanceState(outState);
         myWebView.saveState(outState);
+        super.onSaveInstanceState(outState);
+
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
-        super.onRestoreInstanceState(savedInstanceState);
         myWebView.restoreState(savedInstanceState);
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
 //    private void testEvent() {
@@ -620,6 +631,25 @@ public class MainActivity extends AppCompatActivity {
                 mWebViewClient.syncCookies();
             }catch(Exception e){
                 Log.d("syncWebViewCookies", "error >> " + e);
+            }
+        }
+    }
+
+    private void saveURL(){
+        SharedPreferences prefs = this.getApplicationContext().
+                getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString("lastUrl",myWebView.getUrl());
+        edit.commit();   // can use edit.apply() but in this case commit is better
+    }
+
+    private void loadURL(){
+        if(myWebView != null) {
+            SharedPreferences prefs = this.getApplicationContext().
+                    getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+            String s = prefs.getString("lastUrl","");
+            if(!s.equals("")) {
+                myWebView.loadUrl(s);
             }
         }
     }

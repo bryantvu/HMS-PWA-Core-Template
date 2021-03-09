@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_main.xml.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\drawable_splash.xml.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\drawable\\splash.xml"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\layout_video_progress.xml.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\layout\\video_progress.xml"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\res\\merged\\release\\drawable_default_slogan.png.flat",
+        "source": "E:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\src\\main\\res\\drawable\\default_slogan.png"
+    }
+]

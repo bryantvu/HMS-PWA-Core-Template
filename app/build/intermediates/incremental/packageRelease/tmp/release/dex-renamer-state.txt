@@ -1,0 +1,4 @@
+#Mon Mar 08 15:16:28 PST 2021
+base.0=E\:\\Downloads\\PWA Builder\\CLI\\Uber_Eats - Core\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
