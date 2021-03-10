@@ -622,7 +622,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            Log.d("MyApplication", consoleMessage.message() + " -- From line "
+            Log.d("CONSOLE", consoleMessage.message() + " -- From line "
                     + consoleMessage.lineNumber() + " of "
                     + consoleMessage.sourceId());
             return super.onConsoleMessage(consoleMessage);
