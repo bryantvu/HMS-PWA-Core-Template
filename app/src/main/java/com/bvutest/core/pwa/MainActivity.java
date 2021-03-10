@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAppCacheEnabled(true);
         webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        webSettings.setBuiltInZoomControls(true);
+//        webSettings.setBuiltInZoomControls(true);
         webSettings.setSaveFormData(true);
 //        webSettings.setDomStorageEnabled(true);
         webSettings.setGeolocationEnabled(true);
