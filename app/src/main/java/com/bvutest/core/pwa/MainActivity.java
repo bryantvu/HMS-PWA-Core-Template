@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean splashEnable = false;
     private boolean bannerEnable = false;
     private boolean enableTopBanner = false;
-    private boolean chromeClientEnable = false;
+    private boolean chromeClientEnable = true;
 
     //HMS ANALYTICS
     HiAnalyticsInstance instance;
