@@ -261,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
     private void setWebView(WebView myWebView, Bundle savedInstanceState) {
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        myWebView.setWebContentsDebuggingEnabled(true);
         myWebView.setKeepScreenOn(true);
         webSettings.setAllowContentAccess(true);
         webSettings.setJavaScriptEnabled(true);
@@ -268,6 +269,9 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setSaveFormData(true);
+//        webSettings.setDomStorageEnabled(true);
+        webSettings.setGeolocationEnabled(true);
+        webSettings.setGeolocationDatabasePath( this.getFilesDir().getPath() );
 
         String start_url = this.manifestObject.optString("start_url");
         String scope = this.manifestObject.optString("scope");
@@ -277,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 //        myWebView.setWebViewClient(mWebViewClient);
 
         //chromeClientReplace
-//        chromeClientEnable = true;
+        chromeClientEnable = true;
         if(chromeClientEnable){
             mWebChromeClient = new myWebChromeClient();
             myWebView.setWebChromeClient(mWebChromeClient);
@@ -622,6 +626,11 @@ public class MainActivity extends AppCompatActivity {
                     + consoleMessage.lineNumber() + " of "
                     + consoleMessage.sourceId());
             return super.onConsoleMessage(consoleMessage);
+        }
+
+        public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
+            Log.d(TAG, "onGeolocationPermissionsShowPrompt");
+            callback.invoke(origin, true, false);
         }
     }
 

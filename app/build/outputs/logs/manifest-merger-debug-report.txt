@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
 MERGED from [com.huawei.hms:ads-lite:13.4.32.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\91537474f0e6fc0969fda1b3ffbf8c5a\ads-lite-13.4.32.300\AndroidManifest.xml:3:1-18:12
 MERGED from [com.huawei.hms:ads-consent:3.4.32.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ec824ab2158aeef7aafcd045685ec2ff\ads-consent-3.4.32.300\AndroidManifest.xml:3:1-18:12
 MERGED from [com.huawei.hms:push:5.0.0.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\de55a34bed36438506e1b55d2f06d4e3\push-5.0.0.300\AndroidManifest.xml:2:1-79:12
@@ -58,22 +58,22 @@ MERGED from [com.huawei.hms:log:5.0.0.301] C:\Users\Administrator\.gradle\caches
 MERGED from [com.huawei.hms:update:2.0.6.302] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c314d36d839621a7d4bdb7ccd928bd6e\update-2.0.6.302\AndroidManifest.xml:2:1-48:12
 MERGED from [com.huawei.hms:network-grs:4.0.2.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\aec41ef113bed61fcbe77c26df8bbee0\network-grs-4.0.2.300\AndroidManifest.xml:2:1-11:12
 MERGED from [com.huawei.hms:network-common:4.0.2.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\68c0a393ae6dc7c9a003911dc5c52c81\network-common-4.0.2.300\AndroidManifest.xml:2:1-11:12
-INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
+INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
 	package
 		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
 		INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12
 		INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:11-69
@@ -109,8 +109,12 @@ MERGED from [com.huawei.hms:update:2.0.6.302] C:\Users\Administrator\.gradle\cac
 MERGED from [com.huawei.hms:update:2.0.6.302] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c314d36d839621a7d4bdb7ccd928bd6e\update-2.0.6.302\AndroidManifest.xml:11:5-67
 	android:name
 		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:8:22-76
 application
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:8:5-46:19
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:9:5-47:19
 MERGED from [com.huawei.hms:ads-lite:13.4.32.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\91537474f0e6fc0969fda1b3ffbf8c5a\ads-lite-13.4.32.300\AndroidManifest.xml:12:5-16:19
 MERGED from [com.huawei.hms:ads-lite:13.4.32.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\91537474f0e6fc0969fda1b3ffbf8c5a\ads-lite-13.4.32.300\AndroidManifest.xml:12:5-16:19
 MERGED from [com.huawei.hms:ads-consent:3.4.32.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ec824ab2158aeef7aafcd045685ec2ff\ads-consent-3.4.32.300\AndroidManifest.xml:12:5-16:19
@@ -164,57 +168,57 @@ MERGED from [com.huawei.hms:update:2.0.6.302] C:\Users\Administrator\.gradle\cac
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\625b98bc94008a0fb7dcb0d1bc18ae4f\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:9:9-41
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:10:9-41
 	android:icon
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:13:9-43
-	android:allowBackup
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:10:9-35
-	android:theme
 		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:15:9-43
 	android:usesCleartextTraffic
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:12:9-44
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:13:9-44
 meta-data#com.huawei.hms.client.appid
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:23:9-26:21
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:24:9-27:21
 	android:value
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:25:13-47
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:26:13-47
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:24:13-55
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:25:13-55
 meta-data#com.huawei.hms.client.cpid
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:27:9-30:21
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:28:9-31:21
 	android:value
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:29:13-45
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:30:13-45
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:28:13-54
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:29:13-54
 activity#com.bvutest.core.pwa.MainActivity
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:31:9-37:20
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:32:9-38:20
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:31:19-47
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:32:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:32:13-36:29
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:33:13-37:29
 action#android.intent.action.MAIN
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:33:17-69
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:34:17-69
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:33:25-66
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:34:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:35:17-77
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:36:17-77
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:35:27-74
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:36:27-74
 service#com.bvutest.core.pwa.MyPushService
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:38:9-45:19
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:39:9-46:19
 	android:exported
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:40:13-37
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:41:13-37
 	tools:ignore
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:41:13-42
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:42:13-42
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:39:13-42
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:40:13-42
 intent-filter#action:name:com.huawei.push.action.MESSAGING_EVENT
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:42:13-44:29
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:43:13-45:29
 action#com.huawei.push.action.MESSAGING_EVENT
-ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:43:17-81
+ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:44:17-81
 	android:name
-		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:43:25-78
+		ADDED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:44:25-78
 uses-sdk
 INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml
@@ -658,7 +662,7 @@ ADDED from [com.huawei.hms:availableupdate:5.0.0.301] C:\Users\Administrator\.gr
 	android:name
 		ADDED from [com.huawei.hms:availableupdate:5.0.0.301] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6bfa3bcbdf5c06993beec2eb06f61003\availableupdate-5.0.0.301\AndroidManifest.xml:28:13-73
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-48:12 reason: com.huawei.hms.base.availableupdate requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\Downloads\PWA Builder\CLI\Uber_Eats - Core\app\src\main\AndroidManifest.xml:2:1-49:12 reason: com.huawei.hms.base.availableupdate requested WRITE_EXTERNAL_STORAGE
 provider#com.huawei.agconnect.core.provider.AGConnectInitializeProvider
 ADDED from [com.huawei.agconnect:agconnect-core:1.4.0.300] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4e1accd9e348e26b8daad82e614b73e9\agconnect-core-1.4.0.300\AndroidManifest.xml:11:9-14:40
 	android:authorities
