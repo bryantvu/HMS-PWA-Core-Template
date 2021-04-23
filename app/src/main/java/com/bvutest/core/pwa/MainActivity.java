@@ -5,12 +5,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -58,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
     private WebChromeClient.CustomViewCallback customViewCallback;
     private PwaWebViewClient mWebViewClient;
     private myWebChromeClient mWebChromeClient;
+
+    //geoloationPermissions
+    private String mGeolocationOrigin;
+    private GeolocationPermissions.Callback mGeolocationCallback;
+    private static final int REQUEST_FINE_LOCATION=0;
 
     //HMS ADS
     private BannerView defaultBannerView;
@@ -528,6 +537,30 @@ public class MainActivity extends AppCompatActivity {
         private static final String TAG = "WebChromeClient";
 
         @Override
+        public void onGeolocationPermissionsShowPrompt(String origin,
+                                                       GeolocationPermissions.Callback callback) {
+            // location permission coming from this manifest will be valid
+            // for devices with API_VERSION < 23.
+            // For API 23 and above, check for permissions and ask if not granted
+
+            String perm = android.Manifest.permission.ACCESS_FINE_LOCATION;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+                    ContextCompat.checkSelfPermission(MainActivity.this, perm) == PackageManager.PERMISSION_GRANTED) {
+                // we're on SDK < 23 OR user has already granted permission
+                callback.invoke(origin, true, false);
+            } else {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, perm)) {
+                    // ask the user for permission
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[] {perm}, REQUEST_FINE_LOCATION);
+
+                    // we will use these when user responds
+                    mGeolocationOrigin = origin;
+                    mGeolocationCallback = callback;
+                }
+            }
+        }
+
+        @Override
         public void onShowCustomView(View view, int requestedOrientation, CustomViewCallback callback) {
             hideSystemUI();
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -611,7 +644,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Shows the system bars by removing all the flags
-// except for the ones that make the content appear under the system bars.
+        // except for the ones that make the content appear under the system bars.
         private void showSystemUI() {
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(
@@ -628,10 +661,6 @@ public class MainActivity extends AppCompatActivity {
             return super.onConsoleMessage(consoleMessage);
         }
 
-        public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
-            Log.d(TAG, "onGeolocationPermissionsShowPrompt");
-            callback.invoke(origin, true, false);
-        }
     }
 
     private void syncWebViewCookies(){
@@ -663,11 +692,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    class myWebViewClient extends WebViewClient {
-//        @Override
-//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-////            return super.shouldOverrideUrlLoading(view, url);    //To change body of overridden methods use File | Settings | File Templates.
-//            return false;
-//        }
-//    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_FINE_LOCATION:
+                boolean allow = false;
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // user has allowed this permission
+                    allow = true;
+                }
+                if (mGeolocationCallback != null) {
+                    // call back to web chrome client
+                    mGeolocationCallback.invoke(mGeolocationOrigin, allow, false);
+                }
+                break;
+        }
+    }
 }

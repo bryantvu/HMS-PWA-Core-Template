@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 class PwaWebViewClient extends WebViewClient {
@@ -18,6 +19,7 @@ class PwaWebViewClient extends WebViewClient {
 //    private ArrayList<String> filters = new ArrayList<>(Arrays.asList(".ebay.com", ".ebayinc.com"));
     private static final String TAG = "PwaWebViewClient";
     private boolean enableFilter = false;
+    private boolean enableBlockBanner = false;
 
     public PwaWebViewClient(String start_url, String scope) {
         try {
@@ -132,10 +134,33 @@ class PwaWebViewClient extends WebViewClient {
         CookieManager.getInstance().flush();
     }
 
+    public void blockBanners(WebView view){
+        //enableBlockBanner
+        if(enableBlockBanner){
+            Log.d(TAG, "blockBanners");
+//        List<String> blockIdList = Arrays.asList("Buenos Aires", "Córdoba", "La Plata");
+            List<String> blockClassList = Arrays.asList("blockClassReplace");
+            try{
+                String replacementString;
+                for(String blockClass : blockClassList){
+                    replacementString = "javascript:document.querySelectorAll('."+blockClass+
+                            "').forEach(function(a){a.remove()})";
+                    Log.d(TAG, "blockBanners >> " + replacementString);
+                    view.loadUrl(replacementString);
+                }
+
+            }catch(Exception e){
+                Log.d(TAG, "blockBanners error >> " + e);
+            }
+        }else{
+            Log.d(TAG, "blockBanners >> skipped");
+        }
+    }
+
     public void onPageFinished(WebView view, String url) {
         Log.d(TAG, "onPageFinished");
         syncCookies();
-
+        blockBanners(view);
     }
 }
 
