@@ -1,4 +1,4 @@
-# HMS-PWA-Core-Template
+# PWA Builder HMS Template
 Enabling Splash Ads
 1. MainActivity.java (line 82) set splashEnable = true
 2. strings.xml (line 51) comment line out
