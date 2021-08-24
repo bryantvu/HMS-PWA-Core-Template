@@ -2,7 +2,9 @@ package com.bvutest.core.pwa;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -531,6 +533,54 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    private void syncWebViewCookies(){
+        if(mWebViewClient!=null){
+            try{
+                mWebViewClient.syncCookies();
+            }catch(Exception e){
+                Log.d("syncWebViewCookies", "error >> " + e);
+            }
+        }
+    }
+
+    private void saveURL(){
+        SharedPreferences prefs = this.getApplicationContext().
+                getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString("lastUrl",myWebView.getUrl());
+        edit.commit();   // can use edit.apply() but in this case commit is better
+    }
+
+    private void loadURL(){
+        if(myWebView != null) {
+            SharedPreferences prefs = this.getApplicationContext().
+                    getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
+            String s = prefs.getString("lastUrl","");
+            if(!s.equals("")) {
+                myWebView.loadUrl(s);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_FINE_LOCATION:
+                boolean allow = false;
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // user has allowed this permission
+                    allow = true;
+                }
+                if (mGeolocationCallback != null) {
+                    // call back to web chrome client
+                    mGeolocationCallback.invoke(mGeolocationOrigin, allow, false);
+                }
+                break;
+        }
+    }
+
+    //WebChromeClient
     class myWebChromeClient extends WebChromeClient {
         private Bitmap mDefaultVideoPoster;
         private View mVideoProgressView;
@@ -661,52 +711,13 @@ public class MainActivity extends AppCompatActivity {
             return super.onConsoleMessage(consoleMessage);
         }
 
-    }
+//        @Override
+//        public boolean onJsConfirm(WebView view, String url, String message, final JsResult result) {
+//            String text = url + " >> " + message;
+//            Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+//
+//            return true;
+//        }
 
-    private void syncWebViewCookies(){
-        if(mWebViewClient!=null){
-            try{
-                mWebViewClient.syncCookies();
-            }catch(Exception e){
-                Log.d("syncWebViewCookies", "error >> " + e);
-            }
-        }
-    }
-
-    private void saveURL(){
-        SharedPreferences prefs = this.getApplicationContext().
-                getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-        SharedPreferences.Editor edit = prefs.edit();
-        edit.putString("lastUrl",myWebView.getUrl());
-        edit.commit();   // can use edit.apply() but in this case commit is better
-    }
-
-    private void loadURL(){
-        if(myWebView != null) {
-            SharedPreferences prefs = this.getApplicationContext().
-                    getSharedPreferences(this.getPackageName(), Activity.MODE_PRIVATE);
-            String s = prefs.getString("lastUrl","");
-            if(!s.equals("")) {
-                myWebView.loadUrl(s);
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case REQUEST_FINE_LOCATION:
-                boolean allow = false;
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // user has allowed this permission
-                    allow = true;
-                }
-                if (mGeolocationCallback != null) {
-                    // call back to web chrome client
-                    mGeolocationCallback.invoke(mGeolocationOrigin, allow, false);
-                }
-                break;
-        }
     }
 }
