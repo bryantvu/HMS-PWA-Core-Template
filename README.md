@@ -10,23 +10,28 @@ While PWA Builder can automatically generate an APK without the Android Studio I
 ## Enabling HMS Kits
 
 ### Splash Ads
+[Documentation link](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-splash-0000001050066919)
 1. MainActivity.java (line 82) set splashEnable = true
 2. strings.xml (line 51) comment line out
 3. strings.xml (line 52) uncomment line out
 
 ### Banner Ads at top of screen
+[Documentation link](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-banner-0000001050066915)
 1. MainActivity.java (line 83) set bannerEnable = true
 2. MainActivity.java (line 84) set enableTopBanner = true
 3. strings.xml (line 12) comment line out
 4. strings.xml (line 13) uncomment line out
 
 ### Banner Ads at bottom of screen
+[Documentation link](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-banner-0000001050066915)
 1. MainActivity.java (line 83) set bannerEnable = true
 2. strings.xml (line 12) comment line out
 3. strings.xml (line 13) uncomment line out
 
 ### Analytics/Push
-Make sure that [Analytics](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815)/[Push](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050170137) are properly configured on AGC first.
+Make sure that  are properly configured on AGC first.
+- [Analytics Config link](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050163815)
+- [Push Config link](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050170137)
 1. AndroidManifest.xml (line 26) replace 'replaceAppId' with App ID from AGC.
 2. AndroidManifest.xml (line 30) replace 'replaceCpId' with CP ID from AGC.
 
