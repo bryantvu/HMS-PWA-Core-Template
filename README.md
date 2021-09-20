@@ -1,5 +1,5 @@
 # PWA Builder HMS Template
-This Android project is the base template for the Huawei AppGallery build option on https://pwabuilder-ag.com/.
+This Android project is the base template for the Huawei AppGallery build option on [PWA Builder AG](https://pwabuilder-ag.com/).
 
 While PWA Builder can automatically generate an APK without the Android Studio IDE, it is very simple for a developer with Android experience to modify the template project directly. 
 
@@ -7,7 +7,18 @@ This option might be better if:
 - There are issues using PWA Builder to generate an APK.
 - A developer wishes to customize the PWA solution to meet their needs.
 
-## 
+## FAQ
+
+1. What is a PWA?
+PWA  = Progress Web Application. Web apps that are built with modern APIs to deliver enhanced capabilities, reliability, and a better end user experience that is closer to native mobile app. https://web.dev/what-are-pwas/
+2. What is PWA Builder?
+[PWABuilder.com](https://www.pwabuilder.com/) is a Microsoft open-source tool to package PWAs for mobile app stores. 
+3. What is PWA Builder AG?
+[PWABuilder-AG.com](https://pwabuilder-ag.com/) is an enhancement to Microsoft's tool that adds support for HMS Kits.
+4. What is a PWA APK (Web APK)?
+
+7. What is the ideal use case for PWA Builder?
+8. When should PWA Builder not be used?
 
 ## Enabling HMS Kits
 
