@@ -9,16 +9,16 @@ This option might be better if:
 
 ## FAQ
 
-1. What is a PWA?
+1. What is a PWA?  <br />
 PWA  = Progress Web Application. Web apps that are built with modern APIs to deliver enhanced capabilities, reliability, and a better end user experience that is closer to native mobile app. https://web.dev/what-are-pwas/
-2. What is PWA Builder?
+2. What is PWA Builder?  <br />
 [PWABuilder.com](https://www.pwabuilder.com/) is a Microsoft open-source tool to package PWAs for mobile app stores. 
-3. What is PWA Builder AG?
+3. What is PWA Builder AG?  <br />
 [PWABuilder-AG.com](https://pwabuilder-ag.com/) is an enhancement to Microsoft's tool that adds support for HMS Kits.
-4. What is a PWA APK (Web APK)?
+4. What is a PWA APK (Web APK)?  <br />
 
-7. What is the ideal use case for PWA Builder?
-8. When should PWA Builder not be used?
+7. What is the ideal use case for PWA Builder?  <br />
+8. When should PWA Builder not be used?  <br />
 
 ## Enabling HMS Kits
 
